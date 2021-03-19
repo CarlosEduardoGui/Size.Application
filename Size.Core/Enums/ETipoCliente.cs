@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Size.Core.Enums
 {
-    public enum ETipoDocumento
+    public enum ETipoCliente
     {
-        CPF = 1,
-        CNPJ = 2
+        PessoaFisica = 1,
+        PessoaJurifica = 2
     }
 }

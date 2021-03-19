@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Size.Core.Enums;
+using System;
 
 namespace ProjetoSize.Core
 {
@@ -10,6 +11,8 @@ namespace ProjetoSize.Core
         public string Nome { get; private set; }
 
         public Documento Documento { get; private set; }
+
+        public ETipoCliente TipoCliente { get; private set; }
         #endregion
 
 
@@ -18,12 +21,12 @@ namespace ProjetoSize.Core
         {
             ValidarNome(pNome);
             Documento = new Documento(pDocumento);
+            TipoCliente = Documento.TipoDocumento.Equals(ETipoDocumento.CPF) ? ETipoCliente.PessoaFisica : ETipoCliente.PessoaJurifica;
         }
 
-        public void ValidarNome(string pNome)
+        public static void ValidarNome(string pNome)
         {
             if (string.IsNullOrEmpty(pNome)) throw new Exception("Nome inválido");
-
         }
 
         #endregion
