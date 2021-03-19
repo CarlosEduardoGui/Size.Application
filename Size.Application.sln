@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Application", "Size.Application\Size.Application.csproj", "{19577407-080B-4403-824C-515419C857E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Size.Application", "Size.Application\Size.Application.csproj", "{19577407-080B-4403-824C-515419C857E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Data", "Size.Data\Size.Data.csproj", "{73EBED03-A77A-48AF-A729-DE06E943420E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Size.Data", "Size.Data\Size.Data.csproj", "{73EBED03-A77A-48AF-A729-DE06E943420E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Core", "Size.Core\Size.Core.csproj", "{2FA56B96-720A-4B44-BEFE-F565D213A528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Size.Core", "Size.Core\Size.Core.csproj", "{2FA56B96-720A-4B44-BEFE-F565D213A528}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{604FE1DC-7962-49A2-B985-81E18641E461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Core.Tests", "Size.Core.Tests\Size.Core.Tests.csproj", "{60CEDDAB-8F8B-4A34-AB3E-413CE67CD36E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Size.Core.Tests", "Size.Core.Tests\Size.Core.Tests.csproj", "{60CEDDAB-8F8B-4A34-AB3E-413CE67CD36E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{17AC3794-EEF0-4488-A9D2-CE44EC5F9F68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{40FB4FCE-6909-4AEC-9214-FC44E52D9A66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +44,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{19577407-080B-4403-824C-515419C857E1} = {17AC3794-EEF0-4488-A9D2-CE44EC5F9F68}
+		{73EBED03-A77A-48AF-A729-DE06E943420E} = {40FB4FCE-6909-4AEC-9214-FC44E52D9A66}
+		{2FA56B96-720A-4B44-BEFE-F565D213A528} = {40FB4FCE-6909-4AEC-9214-FC44E52D9A66}
 		{60CEDDAB-8F8B-4A34-AB3E-413CE67CD36E} = {604FE1DC-7962-49A2-B985-81E18641E461}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

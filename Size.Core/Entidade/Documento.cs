@@ -18,8 +18,7 @@ namespace ProjetoSize.Core
             TipoDocumento = pDocumento.Length == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ;
         }
 
-
-        private static int VerificarTipoDocumento(string pDocumento)
+        public static int VerificarTipoDocumento(string pDocumento)
         {
             var lDocumentoNumeros = ApenasNumeros(pDocumento);
             return lDocumentoNumeros.Length == 11
@@ -35,6 +34,19 @@ namespace ProjetoSize.Core
             if (string.IsNullOrEmpty(pDocumento)) throw new Exception("Documento está em branco ou está nulo");
 
             if (!Validar(pDocumento, VerificarTipoDocumento(pDocumento))) throw new Exception("Documento inválido.");
+        }
+
+        public static string ApenasNumeros(string pValor)
+        {
+            var lSomenteNumero = "";
+            foreach (var lValor in pValor)
+            {
+                if (char.IsDigit(lValor))
+                {
+                    lSomenteNumero += lValor;
+                }
+            }
+            return lSomenteNumero.Trim();
         }
 
         private static bool Validar(string pDocumento, int pTamanhoDocumento)
@@ -63,19 +75,6 @@ namespace ProjetoSize.Core
             var lSegundoDigito = lDigitoVerificador.CalculaDigito();
 
             return string.Concat(lPrimeiroDigito, lSegundoDigito) == pValor.Substring(pValor.Length - 2, 2);
-        }
-
-        public static string ApenasNumeros(string pValor)
-        {
-            var lSomenteNumero = "";
-            foreach (var lValor in pValor)
-            {
-                if (char.IsDigit(lValor))
-                {
-                    lSomenteNumero += lValor;
-                }
-            }
-            return lSomenteNumero.Trim();
         }
 
         private class DigitoVerificador
