@@ -1,14 +1,13 @@
-﻿using ProjetoSize.Core;
-using Size.Core.Enums;
+﻿using Size.Core.Entidade;
 using System;
+using System.Collections.Generic;
 
 namespace Size.Core.Entidade
 {
     public class Conta
     {
         public Guid ID { get; private set; }
-        public Cliente Cliente { get; private set; }
-        public ETipoOperacao TipoOperacao { get; private set; }
+        public List<HistoricoTransacao> HistoricoTransacoes { get; private set; }
 
 
         private Conta() { }
@@ -20,7 +19,7 @@ namespace Size.Core.Entidade
             return new Conta
             {
                 ID = Guid.NewGuid(),
-                Cliente = pCliente
+                HistoricoTransacoes = new List<HistoricoTransacao>()
             };
         }
 
@@ -28,7 +27,7 @@ namespace Size.Core.Entidade
         {
             if (!ValidarDeposito(pValor)) return "Valor inválido.";
 
-            
+
             return "Valor Depositado com sucesso!";
         }
 

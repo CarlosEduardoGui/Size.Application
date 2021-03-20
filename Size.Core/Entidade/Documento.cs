@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProjetoSize.Core
+namespace Size.Core.Entidade
 {
     public class Documento
     {

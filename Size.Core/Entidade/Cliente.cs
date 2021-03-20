@@ -1,7 +1,8 @@
-﻿using Size.Core.Enums;
+﻿using Size.Core.Entidade;
+using Size.Core.Enums;
 using System;
 
-namespace ProjetoSize.Core
+namespace Size.Core.Entidade
 {
     public class Cliente
     {
@@ -13,6 +14,8 @@ namespace ProjetoSize.Core
         public Documento Documento { get; private set; }
 
         public ETipoCliente TipoCliente { get; private set; }
+
+        public Conta Conta { get; private set; }
         #endregion
 
 

@@ -1,4 +1,4 @@
-﻿namespace Size.Core.Enums
+﻿namespace Size.Data.Enums
 {
     public enum ETipoOperacao
     {

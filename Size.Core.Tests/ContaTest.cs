@@ -1,6 +1,4 @@
-﻿using ProjetoSize.Core;
-using Size.Core.Entidade;
-using Size.Core.Enums;
+﻿using Size.Core.Entidade;
 using Xunit;
 
 namespace Size.Core.Tests

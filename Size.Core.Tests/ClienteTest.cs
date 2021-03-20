@@ -1,4 +1,4 @@
-using ProjetoSize.Core;
+using Size.Core.Entidade;
 using Size.Core.Enums;
 using Xunit;
 
