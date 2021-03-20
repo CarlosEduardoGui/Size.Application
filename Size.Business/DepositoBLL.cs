@@ -1,4 +1,5 @@
 ﻿using Size.Core.Entidade;
+using Size.Core.Enums;
 using Size.Core.Interface;
 using System;
 
@@ -6,22 +7,31 @@ namespace Size.Business
 {
     public class DepositoBLL : IOperacao
     {
-        private Conta Conta { get; set; }
-        private double Valor { get; set; }
+        private readonly Conta Conta;
 
+        private readonly IContaRepository _contaRepository;
 
-        public DepositoBLL(Conta pConta, double pValor)
+        public DepositoBLL(IContaRepository contaRepository, Conta pConta)
         {
             Conta = pConta;
-            Valor = pValor;
+            _contaRepository = contaRepository;
         }
 
 
         public void Executar()
         {
-            if (Conta != null || Valor != 0)
+            if (Conta != null)
             {
-                throw new Exception("Dados invalidos.");
+                _contaRepository.Atualizar(Conta);
+                
+                var lHistorico = new HistoricoTransacao
+                {
+                    Conta = _contaRepository.ObterPorId(Conta.ID),
+                    TipoOperacao = ETipoOperacao.Deposito,
+                };
+
+
+
             }
         }
     }

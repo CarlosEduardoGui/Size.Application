@@ -15,10 +15,14 @@ namespace Size.Core.Entidade
         [JsonIgnore]
         public ETipoOperacao TipoOperacao { get; set; }
         [JsonIgnore]
-        public DateTime DataHora { get; set; }
-        [JsonIgnore]
         public Conta Conta { get; set; }
+        [JsonIgnore]
+        public DateTime DataHora { get; private set; }
 
-        public HistoricoTransacao() { }
+        public HistoricoTransacao() 
+        {
+            ID = Guid.NewGuid();
+            DataHora = DateTime.Now;
+        }
     }
 }

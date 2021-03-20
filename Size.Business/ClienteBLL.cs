@@ -7,10 +7,10 @@ namespace Size.Business
 {
     public class ClienteBLL : IOperacao
     {
-        private Cliente Cliente { get; set; }
+        private readonly Cliente Cliente;
         private readonly IClienteRepository _clienteRepository;
 
-        public ClienteBLL(IClienteRepository clienteRepository,Cliente pCliente)
+        public ClienteBLL(IClienteRepository clienteRepository, Cliente pCliente)
         {
             _clienteRepository = clienteRepository;
             Cliente = pCliente;
@@ -20,6 +20,8 @@ namespace Size.Business
         {
             if (Cliente == null) throw new Exception("Cliente inválido");
 
+            //if (Documento.ValidarDocumento(Cliente.Documento.Numero)) throw;
+            
             Cliente.Documento.TipoDocumento = Documento.VerificarTipoDocumento(Cliente.Documento.Numero) == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ;
 
             Cliente.TipoCliente = Cliente.Documento.TipoDocumento.Equals(ETipoDocumento.CPF) ? ETipoCliente.PessoaFisica : ETipoCliente.PessoaJurifica;

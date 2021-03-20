@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Size.Core.Interface
 {
-    public interface IClienteRepository : IRepository<Cliente>
+    public interface IHistoricoTransacaoRepository : IRepository<HistoricoTransacao>
     {
     }
 }

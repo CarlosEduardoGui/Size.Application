@@ -9,6 +9,7 @@ namespace Size.Core.Entidade
     {
 
         [Key]
+        [JsonIgnore]
         public Guid Id { get; set; }
 
         public string Nome { get; set; }
@@ -18,6 +19,7 @@ namespace Size.Core.Entidade
         [JsonIgnore]
         public ETipoCliente TipoCliente { get; set; }
 
+        [JsonIgnore]
         public Conta Conta { get; set; }
 
 

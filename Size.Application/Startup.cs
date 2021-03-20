@@ -30,6 +30,8 @@ namespace Size.Application
 
             services.AddScoped<SizeDbContext>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IContaRepository, ContaRepository>();
+            services.AddScoped<IHistoricoTransacaoRepository, HistoricoTransacaoRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

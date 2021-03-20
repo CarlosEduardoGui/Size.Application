@@ -9,6 +9,7 @@ namespace Size.Core.Entidade
     public class Documento
     {
         [Key]
+        [JsonIgnore]
         public Guid ID { get; set; }
 
         [JsonIgnore]
@@ -31,7 +32,6 @@ namespace Size.Core.Entidade
                 : throw new Exception("Tamanho de Documento inválido.");
         }
 
-        
         private static void ValidarDocumento(string pDocumento)
         {
             if (string.IsNullOrEmpty(pDocumento)) throw new Exception("Documento está em branco ou está nulo");
