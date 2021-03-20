@@ -10,8 +10,11 @@ namespace Size.Core.Tests
         public void ValidarInstancia()
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
-            var lDocumento = "47540018852";
-            var lCliente = new Cliente();
+            var lDocumento = new Documento
+            {
+                Numero = "47540018852"
+            };
+            var lCliente = Cliente.AbastecerCliente(lNome, lDocumento);
 
             Assert.NotNull(lCliente);
         }
@@ -20,8 +23,11 @@ namespace Size.Core.Tests
         public void ValidarTipoCliente_PessoaFisica()
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
-            var lDocumento = "47540018852";
-            var lCliente = new Cliente();
+            var lDocumento = new Documento
+            {
+                Numero = "47540018852"
+            };
+            var lCliente = Cliente.AbastecerCliente(lNome, lDocumento);
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaFisica));
         }
@@ -30,8 +36,12 @@ namespace Size.Core.Tests
         public void ValidarTipoCliente_PessoaJuridica()
         {
             var lNome = "SIZE SECURITIZADORA S.A.";
-            var lDocumento = "18695067000153";
-            var lCliente = new Cliente();
+            var lDocumento = new Documento
+            {
+                Numero = "18695067000153"
+            };
+
+            var lCliente = Cliente.AbastecerCliente(lNome, lDocumento);
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaJurifica));
         }
