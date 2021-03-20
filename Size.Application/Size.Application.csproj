@@ -19,11 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Size.Business\Size.Business.csproj" />
     <ProjectReference Include="..\Size.Core\Size.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Size.Data\Size.Data.csproj" />
   </ItemGroup>
 
 </Project>

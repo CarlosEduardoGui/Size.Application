@@ -10,7 +10,7 @@ using Size.Data;
 namespace Size.Data.Migrations
 {
     [DbContext(typeof(SizeDbContext))]
-    [Migration("20210320023519_Initial")]
+    [Migration("20210320155242_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace Size.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Size.Data.DTO.Cliente", b =>
+            modelBuilder.Entity("Size.Core.Entidade.Cliente", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,18 +48,21 @@ namespace Size.Data.Migrations
                     b.ToTable("Cliente");
                 });
 
-            modelBuilder.Entity("Size.Data.DTO.Conta", b =>
+            modelBuilder.Entity("Size.Core.Entidade.Conta", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
 
                     b.HasKey("ID");
 
                     b.ToTable("Conta");
                 });
 
-            modelBuilder.Entity("Size.Data.DTO.Documento", b =>
+            modelBuilder.Entity("Size.Core.Entidade.Documento", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -76,7 +79,7 @@ namespace Size.Data.Migrations
                     b.ToTable("Documento");
                 });
 
-            modelBuilder.Entity("Size.Data.DTO.HistoricoTransacao", b =>
+            modelBuilder.Entity("Size.Core.Entidade.HistoricoTransacao", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -101,13 +104,13 @@ namespace Size.Data.Migrations
                     b.ToTable("HistoricosTransacoes");
                 });
 
-            modelBuilder.Entity("Size.Data.DTO.Cliente", b =>
+            modelBuilder.Entity("Size.Core.Entidade.Cliente", b =>
                 {
-                    b.HasOne("Size.Data.DTO.Conta", "Conta")
+                    b.HasOne("Size.Core.Entidade.Conta", "Conta")
                         .WithMany()
                         .HasForeignKey("ContaID");
 
-                    b.HasOne("Size.Data.DTO.Documento", "Documento")
+                    b.HasOne("Size.Core.Entidade.Documento", "Documento")
                         .WithMany()
                         .HasForeignKey("DocumentoID");
 
@@ -116,16 +119,13 @@ namespace Size.Data.Migrations
                     b.Navigation("Documento");
                 });
 
-            modelBuilder.Entity("Size.Data.DTO.HistoricoTransacao", b =>
+            modelBuilder.Entity("Size.Core.Entidade.HistoricoTransacao", b =>
                 {
-                    b.HasOne("Size.Data.DTO.Conta", null)
-                        .WithMany("HistoricosTransacoes")
+                    b.HasOne("Size.Core.Entidade.Conta", "Conta")
+                        .WithMany()
                         .HasForeignKey("ContaID");
-                });
 
-            modelBuilder.Entity("Size.Data.DTO.Conta", b =>
-                {
-                    b.Navigation("HistoricosTransacoes");
+                    b.Navigation("Conta");
                 });
 #pragma warning restore 612, 618
         }

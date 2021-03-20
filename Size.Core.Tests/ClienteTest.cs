@@ -11,7 +11,7 @@ namespace Size.Core.Tests
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
             var lDocumento = "47540018852";
-            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
+            var lCliente = new Cliente();
 
             Assert.NotNull(lCliente);
         }
@@ -21,7 +21,7 @@ namespace Size.Core.Tests
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
             var lDocumento = "47540018852";
-            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
+            var lCliente = new Cliente();
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaFisica));
         }
@@ -31,7 +31,7 @@ namespace Size.Core.Tests
         {
             var lNome = "SIZE SECURITIZADORA S.A.";
             var lDocumento = "18695067000153";
-            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
+            var lCliente = new Cliente();
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaJurifica));
         }

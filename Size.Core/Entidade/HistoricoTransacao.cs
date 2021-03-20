@@ -5,29 +5,17 @@ namespace Size.Core.Entidade
 {
     public class HistoricoTransacao
     {
-        public Guid ID { get; private set; }
+        public HistoricoTransacao() { }
 
-        public double Valor { get; private set; }
+        public Guid ID { get; set; }
 
-        public ETipoOperacao TipoOperacao { get; private set; }
+        public double Valor { get; set; }
 
-        public DateTime DataHora { get; private set; }
+        public ETipoOperacao TipoOperacao { get; set; }
 
-        private HistoricoTransacao() { }
+        public DateTime DataHora { get; set; }
 
-        public static HistoricoTransacao NovoHistoricoTransacao(double pValor, ETipoOperacao pTipoOperacao, DateTime pDataHoraOperacao)
-        {
+        public Conta Conta { get; set; }
 
-            if (pValor <= 0) throw new ArgumentException("Valor inválido.");
-            if (pDataHoraOperacao < DateTime.Now) throw new ArgumentException("Data e hora inválido.");
-
-            return new HistoricoTransacao
-            {
-                ID = Guid.NewGuid(),
-                Valor = pValor,
-                TipoOperacao = pTipoOperacao,
-                DataHora = pDataHoraOperacao
-            };
-        }
     }
 }

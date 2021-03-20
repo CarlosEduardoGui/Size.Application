@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Size.Data.DTO;
+using Size.Core.Entidade;
 
 namespace Size.Data
 {

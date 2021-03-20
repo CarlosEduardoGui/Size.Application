@@ -8,8 +8,8 @@ namespace Size.Core.Tests
         [Fact]
         public void ValidarInstancia()
         {
-            var lCliente = Cliente.NovoCliente("Carlos Eduardo", "47540018852");
-            var lConta = Conta.NovaConta(lCliente);
+            var lCliente = new Cliente();
+            var lConta = new Conta();
 
             Assert.NotNull(lConta);
         }

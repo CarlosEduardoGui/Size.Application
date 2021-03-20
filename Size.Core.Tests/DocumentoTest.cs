@@ -9,7 +9,7 @@ namespace Size.Core.Tests
         public void ValidarInstancia()
         {
             var lDocumentoMoq = "47540018852";
-            var lDocumento = Documento.NovoDocumento(lDocumentoMoq);
+            var lDocumento = new Documento();
 
             Assert.NotNull(lDocumento);
         }

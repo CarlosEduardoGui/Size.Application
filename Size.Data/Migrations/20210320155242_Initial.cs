@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace Size.Data.Migrations
 {
@@ -11,7 +11,8 @@ namespace Size.Data.Migrations
                 name: "Conta",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Valor = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

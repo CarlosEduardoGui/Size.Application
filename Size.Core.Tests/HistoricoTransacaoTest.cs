@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Size.Core.Tests
+﻿namespace Size.Core.Tests
 {
     class HistoricoTransacaoTest
     {

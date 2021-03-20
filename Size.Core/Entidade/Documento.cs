@@ -11,7 +11,7 @@ namespace Size.Core.Entidade
         public string Numero { get; private set; }
 
 
-        private Documento() { }
+        public Documento() { }
 
         public static Documento NovoDocumento(string pDocumento)
         {
