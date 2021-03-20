@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Size.Core.Interface;
 using Size.Data;
+using Size.Data.Repositorio;
 
 namespace Size.Application
 {
@@ -26,6 +28,8 @@ namespace Size.Application
             services.AddDbContext<SizeDbContext>(options =>
                 options.UseSqlServer(mySqlConnection));
 
+            services.AddScoped<SizeDbContext>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

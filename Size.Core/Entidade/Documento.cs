@@ -1,32 +1,27 @@
 ﻿using Size.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Size.Core.Entidade
 {
     public class Documento
     {
-        public Guid ID { get; private set; }
-        public ETipoDocumento TipoDocumento { get; private set; }
-        public string Numero { get; private set; }
+        [Key]
+        public Guid ID { get; set; }
+
+        [JsonIgnore]
+        public ETipoDocumento TipoDocumento { get; set; }
+
+        public string Numero { get; set; }
 
 
-        public Documento() { }
+        public Documento() { ID = Guid.NewGuid(); }
 
-        public static Documento NovoDocumento(string pDocumento)
-        {
-            ValidarDocumento(pDocumento);
 
-            return new Documento
-            {
-                ID = Guid.NewGuid(),
-                Numero = pDocumento,
-                TipoDocumento = VerificarTipoDocumento(pDocumento) == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ
-            };
-
-        }
-
-        private static int VerificarTipoDocumento(string pDocumento)
+        #region Validador Documento
+        public static int VerificarTipoDocumento(string pDocumento)
         {
             var lDocumentoNumeros = ApenasNumeros(pDocumento);
             return lDocumentoNumeros.Length == 11
@@ -36,7 +31,7 @@ namespace Size.Core.Entidade
                 : throw new Exception("Tamanho de Documento inválido.");
         }
 
-        #region Validador Documento
+        
         private static void ValidarDocumento(string pDocumento)
         {
             if (string.IsNullOrEmpty(pDocumento)) throw new Exception("Documento está em branco ou está nulo");

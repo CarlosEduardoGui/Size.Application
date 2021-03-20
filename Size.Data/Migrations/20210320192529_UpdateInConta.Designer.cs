@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Size.Data;
 
 namespace Size.Data.Migrations
 {
     [DbContext(typeof(SizeDbContext))]
-    partial class SizeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210320192529_UpdateInConta")]
+    partial class UpdateInConta
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
