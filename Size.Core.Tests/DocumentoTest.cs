@@ -1,5 +1,4 @@
 ﻿using ProjetoSize.Core;
-using System;
 using Xunit;
 
 namespace Size.Core.Tests
@@ -10,7 +9,7 @@ namespace Size.Core.Tests
         public void ValidarInstancia()
         {
             var lDocumentoMoq = "47540018852";
-            var lDocumento = new Documento(lDocumentoMoq);
+            var lDocumento = Documento.NovoDocumento(lDocumentoMoq);
 
             Assert.NotNull(lDocumento);
         }

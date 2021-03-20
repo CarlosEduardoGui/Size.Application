@@ -1,24 +1,32 @@
 ﻿using Size.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjetoSize.Core
 {
     public class Documento
     {
+        public Guid ID { get; private set; }
         public ETipoDocumento TipoDocumento { get; private set; }
-
         public string Numero { get; private set; }
 
 
-        public Documento(string pDocumento)
+        private Documento() { }
+
+        public static Documento NovoDocumento(string pDocumento)
         {
             ValidarDocumento(pDocumento);
-            TipoDocumento = pDocumento.Length == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ;
+
+            return new Documento
+            {
+                ID = Guid.NewGuid(),
+                Numero = pDocumento,
+                TipoDocumento = VerificarTipoDocumento(pDocumento) == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ
+            };
+
         }
 
-        public static int VerificarTipoDocumento(string pDocumento)
+        private static int VerificarTipoDocumento(string pDocumento)
         {
             var lDocumentoNumeros = ApenasNumeros(pDocumento);
             return lDocumentoNumeros.Length == 11
@@ -29,14 +37,14 @@ namespace ProjetoSize.Core
         }
 
         #region Validador Documento
-        public static void ValidarDocumento(string pDocumento)
+        private static void ValidarDocumento(string pDocumento)
         {
             if (string.IsNullOrEmpty(pDocumento)) throw new Exception("Documento está em branco ou está nulo");
 
             if (!Validar(pDocumento, VerificarTipoDocumento(pDocumento))) throw new Exception("Documento inválido.");
         }
 
-        public static string ApenasNumeros(string pValor)
+        private static string ApenasNumeros(string pValor)
         {
             var lSomenteNumero = "";
             foreach (var lValor in pValor)
@@ -54,7 +62,7 @@ namespace ProjetoSize.Core
             var lNumeros = ApenasNumeros(pDocumento);
 
             return TemDigitosValidos(lNumeros, pTamanhoDocumento);
-        }   
+        }
 
         private static bool TemDigitosValidos(string pValor, int pTamanhoDocumento)
         {

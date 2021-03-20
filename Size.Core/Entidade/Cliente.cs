@@ -6,7 +6,7 @@ namespace ProjetoSize.Core
     public class Cliente
     {
         #region Atributos
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         public string Nome { get; private set; }
 
@@ -17,16 +17,19 @@ namespace ProjetoSize.Core
 
 
         #region Métodos
-        public Cliente(string pNome, string pDocumento)
-        {
-            ValidarNome(pNome);
-            Documento = new Documento(pDocumento);
-            TipoCliente = Documento.TipoDocumento.Equals(ETipoDocumento.CPF) ? ETipoCliente.PessoaFisica : ETipoCliente.PessoaJurifica;
-        }
+        private Cliente() { }
 
-        public static void ValidarNome(string pNome)
+        public static Cliente NovoCliente(string pNome, string pDocumento)
         {
-            if (string.IsNullOrEmpty(pNome)) throw new Exception("Nome inválido");
+            if (string.IsNullOrEmpty(pNome)) throw new FormatException("Nome inválido.");
+            if (string.IsNullOrEmpty(pDocumento)) throw new FormatException("Documento inválido.");
+
+            return new Cliente
+            {
+                Id = Guid.NewGuid(),
+                Documento = Documento.NovoDocumento(pDocumento),
+                TipoCliente = pDocumento.Length == 11 ? ETipoCliente.PessoaFisica : ETipoCliente.PessoaJurifica
+            };
         }
 
         #endregion

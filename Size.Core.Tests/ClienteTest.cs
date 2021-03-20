@@ -1,6 +1,5 @@
 using ProjetoSize.Core;
 using Size.Core.Enums;
-using System;
 using Xunit;
 
 namespace Size.Core.Tests
@@ -11,8 +10,8 @@ namespace Size.Core.Tests
         public void ValidarInstancia()
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
-            var lDocumento = "475.400.188-52";
-            var lCliente = new Cliente(lNome, lDocumento);
+            var lDocumento = "47540018852";
+            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
 
             Assert.NotNull(lCliente);
         }
@@ -22,7 +21,7 @@ namespace Size.Core.Tests
         {
             var lNome = "Carlos Eduardo Guimarães de Souza";
             var lDocumento = "47540018852";
-            var lCliente = new Cliente(lNome, lDocumento);
+            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaFisica));
         }
@@ -32,7 +31,7 @@ namespace Size.Core.Tests
         {
             var lNome = "SIZE SECURITIZADORA S.A.";
             var lDocumento = "18695067000153";
-            var lCliente = new Cliente(lNome, lDocumento);
+            var lCliente = Cliente.NovoCliente(lNome, lDocumento);
 
             Assert.True(lCliente.TipoCliente.Equals(ETipoCliente.PessoaJurifica));
         }
