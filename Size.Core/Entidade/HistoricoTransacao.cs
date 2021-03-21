@@ -19,7 +19,7 @@ namespace Size.Core.Entidade
         [JsonIgnore]
         public DateTime DataHora { get; private set; }
 
-        public HistoricoTransacao() 
+        public HistoricoTransacao()
         {
             ID = Guid.NewGuid();
             DataHora = DateTime.Now;

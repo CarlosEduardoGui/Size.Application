@@ -17,7 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{17AC3794-EEF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{40FB4FCE-6909-4AEC-9214-FC44E52D9A66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Business", "Size.Business\Size.Business.csproj", "{A0A31893-68A3-4C6E-AED3-9C43C4535739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Size.Business", "Size.Business\Size.Business.csproj", "{A0A31893-68A3-4C6E-AED3-9C43C4535739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Size.Application.Authentication", "Size.Application.Authentication\Size.Application.Authentication.csproj", "{10D239E0-9607-4BCF-8872-0DF9477BE8E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A0A31893-68A3-4C6E-AED3-9C43C4535739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0A31893-68A3-4C6E-AED3-9C43C4535739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0A31893-68A3-4C6E-AED3-9C43C4535739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D239E0-9607-4BCF-8872-0DF9477BE8E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D239E0-9607-4BCF-8872-0DF9477BE8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D239E0-9607-4BCF-8872-0DF9477BE8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D239E0-9607-4BCF-8872-0DF9477BE8E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{2FA56B96-720A-4B44-BEFE-F565D213A528} = {40FB4FCE-6909-4AEC-9214-FC44E52D9A66}
 		{60CEDDAB-8F8B-4A34-AB3E-413CE67CD36E} = {604FE1DC-7962-49A2-B985-81E18641E461}
 		{A0A31893-68A3-4C6E-AED3-9C43C4535739} = {40FB4FCE-6909-4AEC-9214-FC44E52D9A66}
+		{10D239E0-9607-4BCF-8872-0DF9477BE8E2} = {17AC3794-EEF0-4488-A9D2-CE44EC5F9F68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F02A57F3-6C36-4F9E-BF88-DA22716E11C6}

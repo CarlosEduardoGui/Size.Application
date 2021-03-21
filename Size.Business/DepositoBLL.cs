@@ -1,7 +1,6 @@
 ﻿using Size.Core.Entidade;
 using Size.Core.Enums;
 using Size.Core.Interface;
-using System;
 
 namespace Size.Business
 {
@@ -10,11 +9,15 @@ namespace Size.Business
         private readonly Conta Conta;
 
         private readonly IContaRepository _contaRepository;
+        private readonly IHistoricoTransacaoRepository _historicoTransacaoRepository;
 
-        public DepositoBLL(IContaRepository contaRepository, Conta pConta)
+        public DepositoBLL(IContaRepository contaRepository,
+            IHistoricoTransacaoRepository historicoTransacaoRepository,
+            Conta pConta)
         {
             Conta = pConta;
             _contaRepository = contaRepository;
+            _historicoTransacaoRepository = historicoTransacaoRepository;
         }
 
 
@@ -23,15 +26,14 @@ namespace Size.Business
             if (Conta != null)
             {
                 _contaRepository.Atualizar(Conta);
-                
+
                 var lHistorico = new HistoricoTransacao
                 {
                     Conta = _contaRepository.ObterPorId(Conta.ID),
                     TipoOperacao = ETipoOperacao.Deposito,
                 };
 
-
-
+                _historicoTransacaoRepository.Adicionar(lHistorico);
             }
         }
     }

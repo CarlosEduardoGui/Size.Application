@@ -21,12 +21,18 @@ namespace Size.Business
             if (Cliente == null) throw new Exception("Cliente inválido");
 
             //if (Documento.ValidarDocumento(Cliente.Documento.Numero)) throw;
-            
+
             Cliente.Documento.TipoDocumento = Documento.VerificarTipoDocumento(Cliente.Documento.Numero) == 11 ? ETipoDocumento.CPF : ETipoDocumento.CNPJ;
 
             Cliente.TipoCliente = Cliente.Documento.TipoDocumento.Equals(ETipoDocumento.CPF) ? ETipoCliente.PessoaFisica : ETipoCliente.PessoaJurifica;
 
             _clienteRepository.Adicionar(Cliente);
         }
+
+
+        //public int CriarNumeroConta()
+        //{
+        //    return _clienterepository
+        //}
     }
 }

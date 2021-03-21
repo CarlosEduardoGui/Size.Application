@@ -3,9 +3,6 @@ using Size.Business;
 using Size.Core.Entidade;
 using Size.Core.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Size.Application.Controllers
 {
@@ -15,11 +12,15 @@ namespace Size.Application.Controllers
     {
         private readonly IClienteRepository _clienteRepository;
         private readonly IContaRepository _contaRepository;
+        private readonly IHistoricoTransacaoRepository _historicoTransacaooRepository;
 
-        public ClienteController(IClienteRepository clienteRepository, IContaRepository contaRepository)
+        public ClienteController(IClienteRepository clienteRepository,
+            IContaRepository contaRepository,
+            IHistoricoTransacaoRepository historicoTransacaoRepository)
         {
             _clienteRepository = clienteRepository;
             _contaRepository = contaRepository;
+            _historicoTransacaooRepository = historicoTransacaoRepository;
         }
 
         [Route("/criarConta")]
@@ -44,8 +45,8 @@ namespace Size.Application.Controllers
         {
             try
             {
-                var lConta = new DepositoBLL(_contaRepository, pConta);
-
+                var lConta = new DepositoBLL(_contaRepository, _historicoTransacaooRepository, pConta);
+                lConta.Executar();
                 return Ok();
             }
             catch (Exception ex)
