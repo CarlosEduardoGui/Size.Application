@@ -27,9 +27,9 @@ namespace Size.Data.Repositorio
         }
 
 
-        public virtual async Task<List<TEntity>> ObterTodos()
+        public virtual List<TEntity> ObterTodos()
         {
-            return await DbSet.ToListAsync();
+            return DbSet.ToList();
         }
 
         public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)

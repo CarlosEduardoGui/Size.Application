@@ -29,7 +29,7 @@ namespace Size.Application.Controllers
         {
             try
             {
-                var lCliente = new ClienteBLL(_clienteRepository, pCliente);
+                var lCliente = new ClienteBLL(_clienteRepository, _contaRepository, pCliente);
                 lCliente.Executar();
                 return Ok();
             }

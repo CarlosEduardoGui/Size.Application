@@ -6,7 +6,8 @@ namespace Size.Data
 {
     public class AuthDbContext : IdentityDbContext<Usuario>
     {
-        public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options) {
+        public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
+        {
             Database.EnsureCreated();
         }
 

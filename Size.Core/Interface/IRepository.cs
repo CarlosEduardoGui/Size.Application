@@ -11,7 +11,7 @@ namespace Size.Core.Interface
 
         TEntity ObterPorId(Guid id);
 
-        Task<List<TEntity>> ObterTodos();
+        List<TEntity> ObterTodos();
 
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
 

@@ -63,7 +63,7 @@ namespace Size.Application.Authentication.Controllers
 
         [HttpPost]
         [Route("signUp")]
-        public async Task<IActionResult> Register([FromBody]LoginModel model)
+        public async Task<IActionResult> Register([FromBody] LoginModel model)
         {
             if (ModelState.IsValid)
             {

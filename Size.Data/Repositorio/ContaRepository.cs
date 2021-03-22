@@ -7,5 +7,9 @@ namespace Size.Data.Repositorio
     {
         public ContaRepository(SizeDbContext context) : base(context) { }
 
+        public int CapturarUltimaConta()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
