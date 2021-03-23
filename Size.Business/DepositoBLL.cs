@@ -1,6 +1,8 @@
 ﻿using Size.Core.Entidade;
 using Size.Core.Enums;
 using Size.Core.Interface;
+using System;
+using System.Linq;
 
 namespace Size.Business
 {
@@ -25,15 +27,36 @@ namespace Size.Business
         {
             if (Conta != null)
             {
-                _contaRepository.Atualizar(Conta);
-
-                var lHistorico = new HistoricoTransacao
+                if (Conta.Valor != 0)
                 {
-                    Conta = _contaRepository.ObterPorId(Conta.ID),
-                    TipoOperacao = ETipoOperacao.Deposito,
-                };
+                    var lConta = _contaRepository.Buscar(x => x.NumeroConta == Conta.NumeroConta).First();
+                    if (lConta != null)
+                    {
+                        lConta.Valor += Conta.Valor;
 
-                _historicoTransacaoRepository.Adicionar(lHistorico);
+                        _contaRepository.Atualizar(lConta);
+
+                        var lHistorico = new HistoricoTransacao
+                        {
+                            Conta = _contaRepository.ObterPorId(Conta.ID),
+                            TipoOperacao = ETipoOperacao.Deposito,
+                        };
+
+                        _historicoTransacaoRepository.Adicionar(lHistorico);
+                    }
+                    else
+                    {
+                        throw new Exception("Conta informada não existe.");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Valor de deposito precisar ser mais que R$ 0.00");
+                }
+            }
+            else
+            {
+                throw new Exception("Conta inválida.");
             }
         }
     }

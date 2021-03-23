@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace Size.Data.Repositorio
 {
@@ -32,9 +31,9 @@ namespace Size.Data.Repositorio
             return DbSet.ToList();
         }
 
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
+            return DbSet.AsNoTracking().Where(predicate).ToList();
         }
 
         public virtual void Adicionar(TEntity obj)
@@ -45,6 +44,7 @@ namespace Size.Data.Repositorio
 
         public virtual void Atualizar(TEntity obj)
         {
+            //if (Db.Entry(obj).State != EntityState.Modified) obj = DbSet.Find(obj);
             DbSet.Update(obj);
             SaveChanges();
         }

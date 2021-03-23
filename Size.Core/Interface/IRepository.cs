@@ -13,7 +13,7 @@ namespace Size.Core.Interface
 
         List<TEntity> ObterTodos();
 
-        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate);
 
         void Atualizar(TEntity obj);
 

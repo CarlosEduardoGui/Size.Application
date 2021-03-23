@@ -12,8 +12,7 @@ namespace Size.Core.Entidade
         public int NumeroConta { get; set; }
         public double Valor { get; set; }
 
+
         public Conta() { ID = Guid.NewGuid(); }
-
-
     }
 }
