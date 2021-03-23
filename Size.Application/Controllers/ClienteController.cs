@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Size.Business;
 using Size.Core.Entidade;
 using Size.Core.Interface;
@@ -6,8 +7,9 @@ using System;
 
 namespace Size.Application.Controllers
 {
+    //[Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     public class ClienteController : ControllerBase
     {
         private readonly IClienteRepository _clienteRepository;
@@ -23,8 +25,9 @@ namespace Size.Application.Controllers
             _historicoTransacaooRepository = historicoTransacaoRepository;
         }
 
-        [Route("/criarConta")]
+
         [HttpPost]
+        [Route("criarConta")]
         public IActionResult CriarConta(Cliente pCliente)
         {
             try
@@ -40,7 +43,7 @@ namespace Size.Application.Controllers
         }
 
         [HttpPost]
-        [Route("/fazerDeposito/{NumeroConta}/{Valor}")]
+        [Route("fazerDeposito/{NumeroConta}/{Valor}")]
         public IActionResult FazerDeposito(Conta pConta)
         {
             try

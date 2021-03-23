@@ -40,7 +40,7 @@ namespace Size.Application.Authentication.Controllers
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                     };
 
-                    var Chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("alura-webapi-authentication-valid"));
+                    var Chave = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("fedaf7d8863b48e197b9287d492b708e"));
 
                     var Credencias = new SigningCredentials(Chave, SecurityAlgorithms.HmacSha256);
 
